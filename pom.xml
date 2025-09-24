@@ -75,6 +75,12 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
+			<groupId>com.microsoft.sqlserver</groupId>
+			<artifactId>mssql-jdbc</artifactId>
+			<version>13.2.0.jre11</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<version>1.18.34</version>

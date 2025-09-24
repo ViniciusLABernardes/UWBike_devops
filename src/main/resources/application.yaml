@@ -9,16 +9,16 @@ spring:
     name: UWBike
   datasource:
     password: ${DB_PASSWORD}
-    url: jdbc:oracle:thin:@//oracle.fiap.com.br:1521/ORCL
+    url: jdbc:sqlserver://uwbike-sql.database.windows.net:1433;database=uwbike-banco
     username: ${DB_USER}
-    driver-class-name: oracle.jdbc.OracleDriver
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
   jpa:
 
     hibernate:
       ddl-auto: none
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.OracleDialect
+        dialect: org.hibernate.dialect.SQLServerDialect
         format_sql: true
     show-sql: true
   flyway:
