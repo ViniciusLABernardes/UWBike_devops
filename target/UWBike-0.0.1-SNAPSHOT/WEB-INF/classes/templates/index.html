@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>UWBike</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body>
+<div th:replace="fragments/header :: headerFragment"></div>
+<section class="funcBody">
+
+    <h1 >Motos no pátio</h1>
+    <div style="margin-bottom: 3em; margin-top: 20px">
+        <a th:href="@{/moto/novo}" class="btn-primary">+ Nova moto</a>
+
+
+        <a th:href="@{/calcular}" class="btn-secondary">Localizar moto <img th:src="@{/images/lupa.png}" alt="🔍"></a>
+    </div>
+
+        <table class="table" >
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Modelo</th>
+                <th>Placa</th>
+                <th>Patio</th>
+                <th>Entrada</th>
+                <th>Saída</th>
+                <th>Ações</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <tr th:each="motoPatio : ${motosPatio}">
+                <td th:text="${motoPatio.moto.id_moto}"></td>
+                <td th:text="${motoPatio.moto.modelo}"></td>
+                <td th:text="${motoPatio.moto.placa}"></td>
+                <td th:text="${motoPatio.patio.logradouro}"></td>
+                <td th:text="${#temporals.format(motoPatio.dataHoraEntrada, 'dd/MM/yyyy HH:mm')}"></td>
+                <td>
+                    <span th:if="${motoPatio.dataHoraSaida != null}"
+                          th:text="${#temporals.format(motoPatio.dataHoraSaida, 'dd/MM/yyyy HH:mm')}"></span>
+                    <form th:if="${motoPatio.dataHoraSaida == null}"
+                          th:action="@{'/moto/' + ${motoPatio.moto.id_moto} + '/saida'}"
+                          method="post" style="display:inline;">
+                        <button type="submit" class="btn-primary">Registrar Saída</button>
+                    </form>
+                </td>
+                <td class="actions">
+                    <a th:href="@{'/moto/' + ${motoPatio.moto.id_moto} + '/editar'}" class="btn-outline">Editar</a>
+                    <form th:action="@{'/moto/' + ${motoPatio.moto.id_moto} + '/excluir'}" method="post"
+                          onsubmit="return confirm('Confirmar exclusão?');" style="display:inline;">
+                        <button type="submit" class="btn-danger">Excluir</button>
+                    </form>
+                </td>
+            </tr>
+
+            <tr th:if="${#lists.isEmpty(motosPatio)}">
+                <td colspan="7" class="muted">Nenhuma moto registrada ainda. Deseja cadastrar uma?</td>
+            </tr>
+
+            </tbody>
+        </table>
+
+</section>
+<div th:replace="fragments/footer :: footerFragment"></div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Erro</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+<div th:replace="fragments/header :: headerFragment"></div>
+
+<main class="funcBody">
+    <h1>Ops! Ocorreu um erro</h1>
+    <p th:text="${mensagem}">Erro desconhecido.</p>
+    <a th:href="@{/index}" class="btn-primary">Voltar para a página inicial</a>
+</main>
+
+<div th:replace="fragments/footer :: footerFragment"></div>
+</body>
+</html>
