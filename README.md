@@ -22,14 +22,11 @@ Desenvolver uma aplicação que:
 
 
 ## ⚙️ Etapas para rodar o projeto:
-### 1 - Instale o JDK 21 caso não tenha em sua máquina
-### 2 - Coloque suas credenciais do oracle sql developer no arquivo application.yaml
-  datasource:
-    password: sua senha
-    url: jdbc:oracle:thin:@//oracle.fiap.com.br:1521/ORCL
-    username: seu login
-
-### 3 - Teste as funcionalidaes pelo navegador assim como foram feitas nos prints demonstrativos
+### 1 - Rode o script criar-bd.sh (configure-o como queira ou deixe as credenciais como estão).
+### 2 - Rode o script script.bd.sql
+### 3 - Rode o script criar-web-app.sh (configure-o como queira ou deixe as credenciais como estão).
+### 4 - Rode o script clonar-projeto.sh
+### 5 - Acesse o link gerado pelo azure Web app para a aplicação e teste as funcionalidades pelo navegador assim como foram feitas nos prints demonstrativos
 
 ## Prints demonstrativos:
 
