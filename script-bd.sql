@@ -117,10 +117,8 @@ INSERT INTO TB_FUNCIONARIO (nome_func, cpf, salario,cargo)
 VALUES ('Garibaldo', '12345678910', 2342.90,'Gerente');
 INSERT INTO TB_FUNCIONARIO (nome_func, cpf, salario,cargo)
 VALUES ('Armando', '01987654321', 3192.00,'Auxiliar de Pátio');
-INSERT INTO TB_LOGIN (id_funcionario, login, senha)
-VALUES (1, 'garibaldo.torres', '$2a$10$ZrNFsIjC3QRe.8JrW6HIfeXWbJeXki8QkIj70cJJOY6');
-INSERT INTO TB_LOGIN (id_funcionario, login, senha)
-VALUES (2, 'armando.pontes', '2a$10$4Kfqn2f8c3HU/v5xsjecP.GVryK8tytluBrDA0aerDY');
+INSERT INTO TB_LOGIN (id_funcionario, login, senha) VALUES (1, 'garibaldo.torres', '$2a$10$Lw8SGo.eLeIEGYcGlLGazubq3vuL/irmEpTzcV1uVbfUn.lSnqbsu');
+INSERT INTO TB_LOGIN (id_funcionario, login, senha) VALUES (2, 'armando.pontes', '$2a$10$DP/soKIfWMW6yjCZeQwn8eLgN3mkJY9iNM39bYkCuTMPvI.Ca7tvG');
 INSERT INTO TB_PATIO(logradouro,numero,cep,cidade,uf,pais,lotacao_max)
 values('Avenida Professor Celestino Bourroul',363,'02710-000','São Paulo','SP','Brasil',150);
 INSERT INTO TB_PATIO_FUNCIONARIO(id_patio,id_funcionario) values (1,1);

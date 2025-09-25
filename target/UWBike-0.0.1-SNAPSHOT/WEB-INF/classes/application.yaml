@@ -1,0 +1,30 @@
+server:
+  error:
+    include-message: always
+    include-binding-errors: always
+  port: 8080
+
+spring:
+  application:
+    name: UWBike
+  datasource:
+    password: ${DB_PASSWORD:SuaSenhaSuperForte123!}
+    url: ${DB_URL:jdbc:sqlserver://uwbike-sql.database.windows.net:1433;database=uwbike-banco}
+    username: ${DB_USER:uwbike}
+    driver-class-name: ${DB_DRIVER:com.microsoft.sqlserver.jdbc.SQLServerDriver}
+  jpa:
+
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: ${DB_DIALECT:org.hibernate.dialect.SQLServerDialect}
+        format_sql: true
+    show-sql: true
+  flyway:
+    enabled: false
+    locations: classpath:db/migration
+    baseline-on-migrate: true
+logging:
+  level:
+    org.flywaydb: debug

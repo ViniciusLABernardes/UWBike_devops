@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: br.com.UWBike.UwBikeApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.170 s -- in br.com.UWBike.UwBikeApplicationTests
