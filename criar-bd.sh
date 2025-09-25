@@ -1,3 +1,4 @@
+set -e
 # --- Variáveis do Banco de Dados ---
 RESOURCE_GROUP="rg-uwbike"
 LOCATION="brazilsouth"

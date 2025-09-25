@@ -7,7 +7,7 @@ import lombok.Builder;
 @Entity
 
 @Table(name = "TB_ANCORA")
-@SequenceGenerator(name = "ancora_seq",allocationSize = 1,sequenceName = "tb_ancora_seq")
+//@SequenceGenerator(name = "ancora_seq",allocationSize = 1,sequenceName = "tb_ancora_seq")
 public class Ancora {
 
     public Ancora(){
@@ -18,7 +18,8 @@ public class Ancora {
         this.y = y;
     }
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ancora_seq")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+   // @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ancora_seq")
     private Long id;
     @Column(name = "posicao_x")
     private double x;

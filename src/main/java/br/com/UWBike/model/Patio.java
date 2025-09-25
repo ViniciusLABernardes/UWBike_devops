@@ -11,7 +11,7 @@ import java.util.List;
 @Entity
 
 @Table(name = "tb_patio")
-@SequenceGenerator(sequenceName = "tb_patio_seq",name = "patio_seq",allocationSize = 1)
+//@SequenceGenerator(sequenceName = "tb_patio_seq",name = "patio_seq",allocationSize = 1)
 public class Patio {
 
     public Patio(){
@@ -30,7 +30,8 @@ public class Patio {
 
     @Id
     @Column(name = "id_patio")
-    @GeneratedValue(generator = "patio_seq",strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(generator = "patio_seq",strategy = GenerationType.SEQUENCE)
     private long idPatio;
 
     @Column(name = "logradouro",nullable = false,length = 450)

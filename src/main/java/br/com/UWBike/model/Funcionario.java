@@ -14,11 +14,12 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@SequenceGenerator(name = "SQ_FUNCIONARIO", sequenceName = "tb_funcionario_seq", allocationSize = 1)
+//@SequenceGenerator(name = "SQ_FUNCIONARIO", sequenceName = "tb_funcionario_seq", allocationSize = 1)
 public class Funcionario implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_FUNCIONARIO")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+   // @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_FUNCIONARIO")
     @Column(name = "id_funcionario")
     private Long idFuncionario;
 

@@ -30,12 +30,9 @@ public class MotoPatioController {
     @GetMapping("/index")
     public String listarMotosFuncionarioLogado(Model model, Authentication authentication) {
 
-
         String login = authentication.getName();
 
-
         Optional<Funcionario> funcionarioOpt = funcionarioService.buscarPorLogin(login);
-
         List<MotoPatio> motos = new ArrayList<>();
 
         if (funcionarioOpt.isPresent()) {

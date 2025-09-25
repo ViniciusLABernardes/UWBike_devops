@@ -9,20 +9,20 @@ spring:
     name: UWBike
   datasource:
     password: ${DB_PASSWORD}
-    url: jdbc:sqlserver://uwbike-sql.database.windows.net:1433;database=uwbike-banco
+    url: ${DB_URL:jdbc:sqlserver://uwbike-sql.database.windows.net:1433;database=uwbike-banco}
     username: ${DB_USER}
-    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    driver-class-name: ${DB_DRIVER:com.microsoft.sqlserver.jdbc.SQLServerDriver}
   jpa:
 
     hibernate:
-      ddl-auto: none
+      ddl-auto: update
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.SQLServerDialect
+        dialect: ${DB_DIALECT:org.hibernate.dialect.SQLServerDialect}
         format_sql: true
     show-sql: true
   flyway:
-    enabled: true
+    enabled: false
     locations: classpath:db/migration
     baseline-on-migrate: true
 logging:

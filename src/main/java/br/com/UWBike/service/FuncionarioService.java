@@ -15,10 +15,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -38,26 +35,27 @@ public class FuncionarioService {
 
     public Funcionario salvarFuncionario(FuncionarioRequestDto dto) throws Exception {
         String insertFuncionario = """
-            INSERT INTO tb_funcionario (id_funcionario, nome_func, cpf, salario, cargo)
-            VALUES (tb_funcionario_seq.NEXTVAL, ?, ?, ?, ?)
-        """;
+        INSERT INTO tb_funcionario (nome_func, cpf, salario, cargo)
+        VALUES (?, ?, ?, ?)
+    """;
 
         String insertLogin = """
-            INSERT INTO tb_login (id_funcionario, login, senha)
-            VALUES (?, ?, ?)
-        """;
+        INSERT INTO tb_login (id_funcionario, login, senha)
+        VALUES (?, ?, ?)
+    """;
 
         String insertPatio = """
-            INSERT INTO tb_patio_funcionario (id_patio, id_funcionario)
-            VALUES (?, ?)
-        """;
+        INSERT INTO tb_patio_funcionario (id_patio, id_funcionario)
+        VALUES (?, ?)
+    """;
 
         try (Connection conn = dataSource.getConnection()) {
             conn.setAutoCommit(false);
 
-
             Long idFuncionario = null;
-            try (PreparedStatement ps = conn.prepareStatement(insertFuncionario, new String[]{"id_funcionario"})) {
+
+
+            try (PreparedStatement ps = conn.prepareStatement(insertFuncionario, Statement.RETURN_GENERATED_KEYS)) {
                 ps.setString(1, dto.getNomeFunc());
                 ps.setString(2, dto.getCpf());
                 ps.setDouble(3, dto.getSalario());
@@ -76,14 +74,12 @@ public class FuncionarioService {
                 throw new SQLException("Falha ao gerar ID do funcionário");
             }
 
-
             try (PreparedStatement ps = conn.prepareStatement(insertLogin)) {
                 ps.setLong(1, idFuncionario);
                 ps.setString(2, dto.getLogin().getLogin());
                 ps.setString(3, passwordEncoder.encode(dto.getLogin().getSenha()));
                 ps.executeUpdate();
             }
-
 
             if (dto.getIdPatio() != 0) {
                 try (PreparedStatement ps = conn.prepareStatement(insertPatio)) {
@@ -105,6 +101,7 @@ public class FuncionarioService {
             return funcionario;
         }
     }
+
 
     @Transactional
     public void removerFuncionario(Long id) throws IdNaoEncontradoException {

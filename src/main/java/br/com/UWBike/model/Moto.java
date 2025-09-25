@@ -10,8 +10,7 @@ import java.util.List;
 @Entity
 
 @Table(name = "tb_moto")
-@SequenceGenerator(name = "moto_seq",allocationSize = 1,sequenceName = "tb_moto_seq")
-
+//@SequenceGenerator(name = "moto_seq",allocationSize = 1,sequenceName = "tb_moto_seq")
 public class Moto {
     public Moto(){
 
@@ -34,7 +33,8 @@ public class Moto {
 
     @Id
     @Column(name = "id_moto")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "moto_seq")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "moto_seq")
     private long idMoto;
 
     @Column(name = "modelo",nullable = false,length = 100)

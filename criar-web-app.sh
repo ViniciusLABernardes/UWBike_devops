@@ -1,4 +1,4 @@
-
+set -e
 # VARIÁVEIS
 RG="rg-uwbike"
 LOCATION="brazilsouth"               
