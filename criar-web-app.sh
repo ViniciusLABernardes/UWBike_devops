@@ -5,7 +5,7 @@ LOCATION="brazilsouth"
 PLAN="planoServico-free"             
 SKU="F1"                             
 WEBAPP="UWBike"            
-RUNTIME="JAVA:21:Tomcat:10.1"         
+RUNTIME="TOMCAT:10.1-java21"
 INSIGHTS="AppInsights-$WEBAPP"       
 
 
