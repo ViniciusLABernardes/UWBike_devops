@@ -1,1 +1,1 @@
-az webapp deploy --resource-group rg-uwbike --name UWBike --src-path UWBIKE-0.0.1-SNAPSHOT.war --type war
+az webapp deploy --resource-group rg-uwbike --name UWBike --src-path target/UWBike-0.0.1-SNAPSHOT.war --type war

@@ -24,13 +24,7 @@ public class UwBikeApplication extends SpringBootServletInitializer {
 
 
 
-		@Bean
-		public CommandLineRunner runner(FuncionarioService funcionarioService) {
-			return args -> {
 
-				funcionarioService.atualizarSenhasParaBCrypt();
-			};
-		}
 }
 
 
