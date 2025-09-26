@@ -23,8 +23,15 @@ Desenvolver uma aplicação que:
 
 ## ⚙️ Etapas para rodar o projeto:
 ### 1 - Rode o script criar-bd.sh (configure-o como queira ou deixe as credenciais como estão).
+ - ### Ira aparecer esta mensagem e então você digite y e da enter
+- You have not specified the value for backup storage redundancy
+    which will default to geo-redundant storage. Note that database backups will be geo-replicated
+    to the paired region. To learn more about Azure Paired Regions visit https://aka.ms/azure-ragrs-regions.
+    Do you want to proceed? (y/n): y
+
 ### 2 - Rode o script script.bd.sql no banco de dados criado na azure
 ### 3 - Rode o script criar-web-app.sh (configure-o como queira ou deixe as credenciais como estão).
+ - ### Ira aparecer uma outra mensagem e então você digita y e da enter
 ### 4 - Rode o script clonar-projeto.sh
 ### 5 - Acesse o link gerado pelo azure Web app para a aplicação e teste as funcionalidades pelo navegador assim como foram feitas nos prints demonstrativos
 
