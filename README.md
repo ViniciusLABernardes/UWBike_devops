@@ -32,7 +32,7 @@ Desenvolver uma aplicação que:
 ### 2 - Rode o script script.bd.sql no banco de dados criado na azure
 ### 3 - Rode o script criar-web-app.sh (configure-o como queira ou deixe as credenciais como estão).
  - ### Ira aparecer uma outra mensagem e então você digita y e da enter
-### 4 - Rode o script clonar-projeto.sh
+### 4 - Rode o script clonar-projeto.sh (Dentro do terminal local do projeto no intellij ou outra ide)
 ### 5 - Acesse o link gerado pelo azure Web app para a aplicação e teste as funcionalidades pelo navegador assim como foram feitas nos prints demonstrativos
 
 ## Prints demonstrativos:
