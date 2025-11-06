@@ -8,17 +8,17 @@ spring:
   application:
     name: UWBike
   datasource:
-    password: ${DB_PASSWORD}
-    url: ${DB_URL:jdbc:sqlserver://uwbike-sql.database.windows.net:1433;database=uwbike-banco}
-    username: ${DB_USER}
-    driver-class-name: ${DB_DRIVER:com.microsoft.sqlserver.jdbc.SQLServerDriver}
+    password: ${DBPASSWORD}
+    url: ${DBURL:jdbc:postgresql://uwbike-sql.postgres.database.azure.com:5432/uwbike-banco}
+    username: ${DBUSER}
+    driver-class-name: ${DBDRIVER:org.postgresql.Driver}
   jpa:
 
     hibernate:
       ddl-auto: update
     properties:
       hibernate:
-        dialect: ${DB_DIALECT:org.hibernate.dialect.SQLServerDialect}
+        dialect: ${DBDIALECT:org.hibernate.dialect.PostgreSQLDialect}
         format_sql: true
     show-sql: true
   flyway:
@@ -27,4 +27,4 @@ spring:
     baseline-on-migrate: true
 logging:
   level:
-    org.flywaydb: debug
+    org.flywaydb: off
